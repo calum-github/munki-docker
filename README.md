@@ -1,8 +1,15 @@
 # Munki-Docker
 
+Version: 0.3.0
+Date: 29/06/2018
+Author: Calum Hunter
+
 This is my version of having a Munki repository in a Docker container.
 
-I am using `Debian:jessie` as a base image.
+PHP7.0-fpm is also included to allow for php scripts to run inside the munki repo
+such as munki-enroll
+
+I am using `Debian:stretch` as a base image.
 
 The `nginx.conf` file has been tweaked to suit a 2 core CPU system ie `worker_processes = 2`
 

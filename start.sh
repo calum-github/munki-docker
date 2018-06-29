@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Start up php5-fpm
-echo "*** Starting PHP5-FPM ***"
+echo "*** Starting PHP7.0-FPM ***"
 echo ""
-service php5-fpm start
+service php7.0-fpm start
 echo "*** PHP Started ***"
 echo ""
 
