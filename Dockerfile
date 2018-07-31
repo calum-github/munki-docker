@@ -23,7 +23,8 @@ RUN apt-get update && \
 
 # Create dirs for Munki
 RUN mkdir -p /munki_repo && \
-	mkdir -p /etc/nginx/sites-enabled/
+	mkdir -p /etc/nginx/sites-enabled/ && \
+	rm /etc/nginx/sites-enabled/default
 	
 # Add Munki config files
 ADD nginx.conf /etc/nginx/nginx.conf
