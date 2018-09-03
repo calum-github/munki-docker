@@ -14,7 +14,7 @@ MAINTAINER Calum Hunter (calum.h@gmail.com)
 
 # Add the packages we need from apt then remove the cached list saving some disk space
 RUN apt-get update && \
-	apt-get upgrade &&\ 
+	apt-get upgrade && \
 	apt-get install -y \
 	nginx \
 	vim \
@@ -24,10 +24,10 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 # Create dirs for Munki
-RUN mkdir -p /munki_repo && \
+RUN mkdir -p /webroot && \
 	mkdir -p /etc/nginx/sites-enabled/ && \
 	rm /etc/nginx/sites-enabled/default
-	
+
 # Add Munki config files
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD munki-repo.conf /etc/nginx/sites-enabled/
@@ -41,7 +41,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 	ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Expose volumes
-VOLUME ["/munki_repo"]
+VOLUME ["/webroot"]
 
 # Expose ports
 EXPOSE 80 443

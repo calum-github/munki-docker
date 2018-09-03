@@ -1,7 +1,7 @@
 # Munki-Docker
 
-Version: 0.3.0
-Date: 29/06/2018
+Version: 0.4.0
+Date: 04/09/2018
 Author: Calum Hunter
 
 This is my version of having a Munki repository in a Docker container.
@@ -20,8 +20,8 @@ ie. output buffers increased and sendfile off, keepalive times increased ect
 
 ## Usage
 
-Lets assume that you have your munki repository at `/munki_repo` on your host
-inside this `/munki_repo` directory you have your regular munki directories like
+Lets assume that you have your munki repository at `/webroot/munki_repo` on your host
+inside this `/webroot/munki_repo` directory you have your regular munki directories like
  
     ├── catalogs
     ├── client_resources
@@ -32,14 +32,14 @@ inside this `/munki_repo` directory you have your regular munki directories like
 
 Now just run the docker container like this:
 
-    docker run -d -p 80:80 -v /munki_repo:/munki_repo --name munki_repo hunty1/munki-docker
+    docker run -d -p 80:80 -v /webroot:/webroot --name munki_repo hunty1/munki-docker
 
 The `-p 80:80` maps the hosts port 80 to the containers port 80, if you would like to hit your munki server on a different port
 for example say 8080 because your host already has a webserver running on 80 you could change this to 
 `-p 8080:80` 
 Now when the host receives a request on 8080 it forwards that to the docker container on port 80.
 
-The `-v /munki_repo:/munki_repo` mounts the folder on the host at `/munki_repo` into `/munki_repo` in the container, this is the root
+The `-v /webroot:/webroot` mounts the folder on the host at `/webroot` into `/webroot` in the container, this is the root
 directory that is served via Nginx in the docker container.
 
 The `--name` simply gives the container a name instead of a random one given to it by docker.
