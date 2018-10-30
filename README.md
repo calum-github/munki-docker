@@ -48,6 +48,6 @@ The `hunty1/munki-docker` is simply the location of the image on the docker publ
 
 Lets say you have a `Chrome.dmg` inside your pkgs folder. Once the container is running you should be able to open a web browser
 and navigate to `http://ip-or-dns-name-of-your-docker-host/pkgs/Chrome.dmg`
-The file should then download. If it works your good to go!
+The file should then download. If it works you're good to go!
 
 
